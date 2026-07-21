@@ -89,7 +89,10 @@
     <!-- ====================================================== FILM BANNER -->
     <section class="page-banner page-banner--media">
       <div class="page-banner__media">
-        <img src="../../assets/films/echoes-of-us-hero-faces-w2400.jpg" alt="Still from Echoes of Us" fetchpriority="high" />
+        <picture>
+          <source media="(max-width: 760px)" srcset="../../assets/films/echoes-of-us-poster-w1200.jpg" />
+          <img src="../../assets/films/echoes-of-us-hero-faces-w2400.jpg" alt="Echoes of Us" fetchpriority="high" />
+        </picture>
       </div>
       <div class="container page-banner__inner" style="padding-bottom: clamp(48px, 8vh, 90px)">
         <nav class="breadcrumb" aria-label="Breadcrumb">
