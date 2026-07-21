@@ -300,6 +300,13 @@
     var inner = document.querySelector('.hero__inner');
     if (!media) return;
     window.addEventListener('scroll', function () {
+      // On phones the hero media is an in-flow block (full poster) — parallax would
+      // drag it over the copy below, so bail out and clear any applied transform.
+      if (window.innerWidth <= 760) {
+        media.style.transform = '';
+        if (inner) { inner.style.transform = ''; inner.style.opacity = ''; }
+        return;
+      }
       var yPos = window.scrollY;
       if (yPos > window.innerHeight * 1.2) return;
       media.style.transform = 'translateY(' + yPos * 0.28 + 'px)';
