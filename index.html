@@ -6,7 +6,13 @@
   <title>Alliance Media Pty Ltd — Australian Film Production Company</title>
   <meta name="description" content="Alliance Media Pty Ltd is an Australian film production company — producer of Echoes of Us (88+ international laurels, Best Actor at the French Riviera Film Festival, Cannes 2026) with an international slate in development." />
   <link rel="icon" href="assets/logo/am-emblem-w400.png" />
-  <link rel="stylesheet" href="styles.css?v=3" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340..560;1,9..144,340..560&family=Libre+Franklin:wght@400..800&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340..560;1,9..144,340..560&family=Libre+Franklin:wght@400..800&display=swap" rel="stylesheet" media="print" onload="this.media=&quot;all&quot;" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340..560;1,9..144,340..560&family=Libre+Franklin:wght@400..800&display=swap" rel="stylesheet" /></noscript>
+  <link rel="preload" as="image" href="assets/films/echoes-of-us-hero-faces-w2400.jpg" imagesrcset="assets/films/echoes-of-us-hero-faces-w800.jpg 800w, assets/films/echoes-of-us-hero-faces-w1200.jpg 1200w, assets/films/echoes-of-us-hero-faces-w2400.jpg 2400w" imagesizes="100vw" />
+  <link rel="stylesheet" href="styles.css?v=7" />
   <link rel="canonical" href="https://arshdeep2705.github.io/alliance-media/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Alliance Media Pty Ltd" />
@@ -87,7 +93,7 @@
     <!-- ======================================================== ACT I · HERO -->
     <section class="hero--cinema grain">
       <div class="hero__media">
-        <img src="assets/films/echoes-of-us-hero-faces-w2400.jpg" alt="Deepak Tijori and Iulia Vantur in Echoes of Us" width="2400" height="730" fetchpriority="high" />
+        <img src="assets/films/echoes-of-us-hero-faces-w2400.jpg" srcset="assets/films/echoes-of-us-hero-faces-w800.jpg 800w, assets/films/echoes-of-us-hero-faces-w1200.jpg 1200w, assets/films/echoes-of-us-hero-faces-w2400.jpg 2400w" sizes="100vw" alt="Deepak Tijori and Iulia Vantur in Echoes of Us" width="2400" height="730" fetchpriority="high" />
       </div>
       <div class="container hero__inner">
         <p class="hero__kicker">Alliance Media · An Australian film production company</p>
@@ -160,7 +166,7 @@
     </section>
 
     <!-- ================================================ ACT IV · FLAGSHIP -->
-    <section class="flagship grain" id="film">
+    <section class="flagship flagship--story grain" id="film">
       <div class="container">
         <div class="section-head">
           <div>
@@ -169,11 +175,12 @@
           </div>
           <a class="btn btn--ghost reveal" href="films/echoes-of-us/">Explore the film<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
+        <div class="flagship__scroll">
         <div class="flagship__stage">
           <div class="flagship__art">
-            <img src="assets/films/echoes-of-us-hero-w2400.jpg" alt="Echoes of Us — official key art" width="2400" height="1350" loading="lazy" />
+            <img src="assets/films/echoes-of-us-hero-w2400.jpg" srcset="assets/films/echoes-of-us-hero-w1200.jpg 1200w, assets/films/echoes-of-us-hero-w2400.jpg 2400w" sizes="(max-width: 960px) 100vw, 1160px" alt="Echoes of Us — official key art" width="2400" height="1350" loading="lazy" />
           </div>
-          <div class="flagship__meta reveal-child">
+          <div class="flagship__meta">
             <div class="flagship__cell">
               <h4>The film</h4>
               <p class="big">A heartfelt story of love, loss and second chances — two strangers, bound by what is no longer there.</p>
@@ -187,6 +194,7 @@
               <p><b>15 Best Film</b> · <b>22 Best Actor</b> · <b>11 Best Actress</b> · 88+ international laurels · <b>Best Actor (Founders Award)</b>, French Riviera Film Festival, Cannes 2026</p>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </section>
@@ -218,9 +226,10 @@
     <!-- ================================================== ACT VI · SLATE -->
     <section class="section--night section slate-wrap grain" id="slate">
       <div class="slate-atmo" aria-hidden="true">
-        <div class="atmo-tone" data-atmo-layer="tone"></div>
-        <img data-atmo-layer="kabuliwala" src="assets/films/kabuliwala-poster-w1600.jpg" alt="" loading="lazy" />
-        <img data-atmo-layer="defiant-nadia" src="assets/films/defiant-nadia-w1600.jpg" alt="" loading="lazy" />
+        <div class="atmo-frame atmo-frame--misfired" data-atmo-layer="misfired"><span class="atmo-frame__word">Misfired</span><span class="atmo-frame__tag">Based on a true Australian story</span></div>
+        <div class="atmo-frame atmo-frame--khoj" data-atmo-layer="khoj"><span class="atmo-frame__word">Khoj</span><span class="atmo-frame__tag">In development</span></div>
+        <img data-atmo-layer="kabuliwala" src="assets/films/kabuliwala-poster-w1600.jpg" alt="" width="1024" height="1536" loading="lazy" />
+        <img data-atmo-layer="defiant-nadia" src="assets/films/defiant-nadia-w1600.jpg" alt="" width="1600" height="1255" loading="lazy" />
       </div>
       <div class="container">
         <div class="section-head">
@@ -232,7 +241,7 @@
         </div>
 
         <div class="slate-list slate-list--desk reveal">
-          <a class="slate-row" href="slate/#misfired" data-atmo="tone">
+          <a class="slate-row" href="slate/#misfired" data-atmo="misfired">
             <span class="slate-row__idx">01</span>
             <span class="slate-row__title">Misfired</span>
             <span class="slate-row__meta"><strong>Origin</strong>Based on a true Australian story</span>
@@ -253,7 +262,7 @@
             <span class="slate-row__status">In development</span>
             <span class="slate-row__arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </a>
-          <a class="slate-row" href="slate/#khoj" data-atmo="tone">
+          <a class="slate-row" href="slate/#khoj" data-atmo="khoj">
             <span class="slate-row__idx">04</span>
             <span class="slate-row__title">Khoj</span>
             <span class="slate-row__meta"><strong>Status</strong>Details to be announced</span>
@@ -296,7 +305,7 @@
         <div class="people-grid reveal-child">
           <a class="person-card" href="people/deepak-tijori/">
             <div class="person-card__media reveal-mask">
-              <img src="assets/people/deepak-tijori-2026-formal-w1200.jpg" alt="Deepak Tijori — 2026 portrait" loading="lazy" />
+              <img src="assets/people/deepak-tijori-2026-formal-w1200.jpg" alt="Deepak Tijori — 2026 portrait" width="1200" height="2112" loading="lazy" />
               <span class="person-card__name">Deepak Tijori</span>
             </div>
             <div class="person-card__under">
@@ -306,7 +315,7 @@
           </a>
           <a class="person-card" href="people/arshdeep-singh/">
             <div class="person-card__media reveal-mask">
-              <img src="assets/people/arshdeep-singh-w1200.jpg" alt="Arshdeep Singh — portrait" loading="lazy" />
+              <img src="assets/people/arshdeep-singh-w1200.jpg" alt="Arshdeep Singh — portrait" width="1200" height="2132" loading="lazy" />
               <span class="person-card__name">Arshdeep Singh</span>
             </div>
             <div class="person-card__under">
@@ -376,6 +385,6 @@
 
   <button class="to-top" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
 
-  <script src="script.js?v=4"></script>
+  <script src="script.js?v=7"></script>
 </body>
 </html>

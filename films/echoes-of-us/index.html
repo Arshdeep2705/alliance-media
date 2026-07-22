@@ -6,7 +6,12 @@
   <title>Echoes of Us — Alliance Media Pty Ltd</title>
   <meta name="description" content="Echoes of Us — directed by Joe Rajan, produced by Pooja Batra and Alliance Media Pty Ltd. 88+ international laurels, 22 Best Actor wins including Best Actor (Founders Award) at the French Riviera Film Festival, Cannes 2026." />
   <link rel="icon" href="../../assets/logo/am-emblem-w400.png" />
-  <link rel="stylesheet" href="../../styles.css?v=3" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340..560;1,9..144,340..560&family=Libre+Franklin:wght@400..800&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340..560;1,9..144,340..560&family=Libre+Franklin:wght@400..800&display=swap" rel="stylesheet" media="print" onload="this.media=&quot;all&quot;" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340..560;1,9..144,340..560&family=Libre+Franklin:wght@400..800&display=swap" rel="stylesheet" /></noscript>
+  <link rel="stylesheet" href="../../styles.css?v=7" />
   <link rel="canonical" href="https://arshdeep2705.github.io/alliance-media/films/echoes-of-us/" />
   <meta property="og:type" content="video.movie" />
   <meta property="og:site_name" content="Alliance Media Pty Ltd" />
@@ -43,7 +48,7 @@
   }
   </script>
 </head>
-<body>
+<body class="header-dark">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <div class="scroll-progress" aria-hidden="true"></div>
@@ -52,7 +57,7 @@
     <div class="container--wide">
       <div class="site-header__inner">
         <a class="brand" href="../../" aria-label="Alliance Media Pty Ltd — home">
-          <img src="../../assets/logo/am-logo-dark-w600.png" alt="Alliance Media Pty Ltd" />
+          <img class="brand__dark" src="../../assets/logo/am-logo-dark-w600.png" alt="Alliance Media Pty Ltd" width="600" height="342" /><img class="brand__light" src="../../assets/logo/am-logo-tr-w600.png" alt="Alliance Media Pty Ltd" width="600" height="342" />
         </a>
         <nav class="main-nav" aria-label="Primary">
           <a href="../../">Home</a>
@@ -79,7 +84,7 @@
   <main id="main">
 
     <!-- ====================================================== FILM BANNER -->
-    <section class="page-banner">
+    <section class="cine-banner grain">
       <div class="container">
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="../../">Home</a>
@@ -91,7 +96,7 @@
         <p class="lead">A heartfelt story of love, loss and second chances — 15 Best Film honours, 22 Best Actor awards and back-to-back Cannes-season screenings in May 2026.</p>
       </div>
       <div class="banner-band reveal">
-        <img src="../../assets/films/echoes-of-us-hero-w2400.jpg" alt="Echoes of Us — official key art" fetchpriority="high" />
+        <img src="../../assets/films/echoes-of-us-hero-w2400.jpg" alt="Echoes of Us — official key art" fetchpriority="high" width="2400" height="1350" />
       </div>
     </section>
 
@@ -136,17 +141,25 @@
     </section>
 
     <!-- ========================================================= TRAILER -->
-    <section class="section section--alt" id="trailer">
+    <section class="theatre grain" id="trailer">
       <div class="container">
-        <div class="trailer-head reveal">
-          <p class="eyebrow">Watch the trailer</p>
-          <h2 class="display">The <span class="accent">official trailer.</span></h2>
+        <div class="trailer-head">
+          <p class="eyebrow reveal">The trailer</p>
+          <h2 class="display reveal" style="color:var(--n-text)">Two minutes <span class="accent">inside the film.</span></h2>
         </div>
-        <div class="trailer-frame reveal">
-          <video controls preload="none" playsinline poster="../../assets/films/echoes-trailer-poster.jpg" width="1280" height="536">
-            <source src="../../assets/videos/echoes-trailer-scope.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+        <div class="theatre__stage reveal-mask" role="button" tabindex="0" aria-label="Play the Echoes of Us trailer in cinema view" data-cinema="../../assets/videos/echoes-trailer-scope.mp4" data-cinema-poster="../../assets/films/echoes-trailer-poster.jpg">
+          <div class="theatre__poster">
+            <img src="../../assets/films/echoes-trailer-poster.jpg" alt="Still from the Echoes of Us trailer" width="1280" height="536" loading="lazy" />
+          </div>
+          <div class="theatre__veil" aria-hidden="true"></div>
+          <div class="theatre__play" aria-hidden="true">
+            <span class="theatre__play-ring"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+            <span class="theatre__play-label">Watch the trailer</span>
+          </div>
+        </div>
+        <div class="theatre__caption">
+          <span>Echoes of Us · Official trailer</span>
+          <span>1 min 17 · Silent until you press play</span>
         </div>
       </div>
     </section>
@@ -209,7 +222,7 @@
           </div>
           <div class="reveal">
             <figure class="poster-plate">
-              <img src="../../assets/films/echoes-of-us-cast-w1600.jpg" alt="The cast and director of Echoes of Us" loading="lazy" />
+              <img src="../../assets/films/echoes-of-us-cast-w1600.jpg" alt="The cast and director of Echoes of Us" loading="lazy" width="1600" height="2399" />
               <figcaption style="padding:12px 6px 4px; font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-faint)">The cast and director of Echoes of Us</figcaption>
             </figure>
           </div>
@@ -269,7 +282,7 @@
     <div class="container">
       <div class="site-footer__grid">
         <div class="site-footer__brand">
-          <img src="../../assets/logo/am-logo-tr-w600.png" alt="Alliance Media Pty Ltd" loading="lazy" />
+          <img src="../../assets/logo/am-logo-tr-w600.png" alt="Alliance Media Pty Ltd" width="600" height="342" loading="lazy" />
           <p>An Australian film production company. Produced from Melbourne, seen everywhere.</p>
         </div>
         <div>
@@ -308,6 +321,6 @@
 
   <button class="to-top" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
 
-  <script src="../../script.js?v=4"></script>
+  <script src="../../script.js?v=7"></script>
 </body>
 </html>

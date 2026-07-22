@@ -9,6 +9,7 @@
   var staticMode = /[?&]static\b/.test(location.search);
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches || staticMode;
   var docEl = document.documentElement;
+  var jumpTs = 0; // last programmatic hash-jump; header must not auto-hide on arrival
 
   if (staticMode) {
     var qa = document.createElement('style');
@@ -26,7 +27,8 @@
     if (!ident) { docEl.classList.add('no-ident'); return; }
     var seen = false;
     try { seen = sessionStorage.getItem('am_v3') === '1'; } catch (e) {}
-    if (reduced || seen || location.hash) {
+    var phone = window.innerWidth <= 760 || (navigator.connection && navigator.connection.saveData);
+    if (reduced || seen || location.hash || phone) {
       ident.classList.add('ident--off');
       docEl.classList.add('no-ident', 'is-open');
       return;
@@ -44,6 +46,7 @@
     function onScroll() {
       var y = window.scrollY;
       header.classList.toggle('is-scrolled', y > 24);
+      if (Date.now() - jumpTs < 900) { header.classList.remove('is-hidden'); lastY = y; return; }
       if (!document.body.classList.contains('menu-open')) {
         if (y > 480 && y > lastY + 8) header.classList.add('is-hidden');
         else if (y < lastY - 8 || y < 480) header.classList.remove('is-hidden');
@@ -54,19 +57,108 @@
     onScroll();
   }
 
-  /* ---------------------------------------------------------- mobile menu */
+  /* ------------------------------- mobile menu (full focus management) */
   function initMenu() {
     var toggle = document.querySelector('.menu-toggle');
     var menu = document.querySelector('.mobile-menu');
     if (!toggle || !menu) return;
+    var inertTargets = ['main', 'footer', '.site-header .main-nav', '.header-cta']
+      .map(function (s) { return document.querySelector(s); }).filter(Boolean);
     function setOpen(open) {
       document.body.classList.toggle('menu-open', open);
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      inertTargets.forEach(function (el) { try { el.inert = open; } catch (e) {} });
+      if (open) {
+        var first = menu.querySelector('a');
+        window.setTimeout(function () { if (first) first.focus(); }, reduced ? 0 : 250);
+      } else {
+        toggle.focus();
+      }
     }
     toggle.addEventListener('click', function () { setOpen(!document.body.classList.contains('menu-open')); });
     menu.addEventListener('click', function (e) { if (e.target.closest('a')) setOpen(false); });
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && document.body.classList.contains('menu-open')) { setOpen(false); toggle.focus(); }
+      if (!document.body.classList.contains('menu-open')) return;
+      if (e.key === 'Escape') { setOpen(false); return; }
+      if (e.key === 'Tab') { // trap focus within menu + toggle
+        var items = Array.prototype.slice.call(menu.querySelectorAll('a'));
+        items.push(toggle);
+        var idx = items.indexOf(document.activeElement);
+        if (e.shiftKey && (idx === 0 || idx === -1)) { e.preventDefault(); items[items.length - 1].focus(); }
+        else if (!e.shiftKey && idx === items.length - 1) { e.preventDefault(); items[0].focus(); }
+      }
+    });
+  }
+
+  /* ------------------------------- hash navigation (native + assists)
+     The browser's own fragment navigation is the source of truth: CSS
+     `[id]{scroll-margin-top:92px}` lands every target below the fixed
+     header, and Chrome's fragment anchoring self-corrects when late
+     media/fonts shift layout (it re-snaps until the user scrolls).
+     Fighting it with scrollTo is impossible pre-gesture — so we don't.
+     The ident is skipped on hash URLs (initIdent), so the native jump
+     is never trapped behind the intro. We only assist: keep the header
+     visible on arrival, and re-assert the fragment once after load in
+     case a browser skipped the initial anchor. */
+  function initHashNav() {
+    function assist() {
+      jumpTs = Date.now();
+      var h = document.querySelector('.site-header');
+      if (h) h.classList.remove('is-hidden');
+    }
+    if (location.hash) {
+      assist();
+      window.addEventListener('load', function () {
+        assist();
+        var target;
+        try { target = document.querySelector(location.hash); } catch (e) { target = null; }
+        // if the anchor was somehow missed (e.g. hash set before element parsed), re-assert it
+        if (target && Math.abs(target.getBoundingClientRect().top) > window.innerHeight) {
+          target.scrollIntoView({ behavior: 'auto', block: 'start' });
+        }
+      }, { once: true });
+    }
+    window.addEventListener('hashchange', assist);
+  }
+
+  /* --------------------------------- page transitions (film cut, ~380ms) */
+  function initTransitions() {
+    var curtain = document.createElement('div');
+    curtain.className = 'curtain';
+    curtain.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(curtain);
+
+    // entry: lift the curtain if we arrived via an internal cut
+    var arrived = false;
+    try { arrived = sessionStorage.getItem('am_cut') === '1'; sessionStorage.removeItem('am_cut'); } catch (e) {}
+    if (arrived && !reduced && !document.querySelector('.ident:not(.ident--off)')) {
+      curtain.classList.add('is-entry');
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () { curtain.classList.add('is-lift'); });
+      });
+      window.setTimeout(function () { curtain.classList.remove('is-entry', 'is-lift'); }, 700);
+    }
+    // restore instantly when coming back from bfcache
+    window.addEventListener('pageshow', function (e) {
+      if (e.persisted) curtain.classList.remove('is-cut', 'is-entry', 'is-lift');
+    });
+    if (reduced) return;
+
+    document.addEventListener('click', function (e) {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      var a = e.target.closest('a');
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      if (a.target === '_blank' || a.hasAttribute('download')) return;
+      if (/^(https?:)?\/\//.test(href) && a.origin !== location.origin) return;
+      if (/^(mailto:|tel:|#)/.test(href)) return;
+      var url = new URL(a.href, location.href);
+      if (url.origin !== location.origin) return;
+      if (url.pathname === location.pathname && url.hash) return; // same-page anchor
+      e.preventDefault();
+      try { sessionStorage.setItem('am_cut', '1'); } catch (err) {}
+      curtain.classList.add('is-cut');
+      window.setTimeout(function () { location.href = a.href; }, 390);
     });
   }
 
@@ -150,17 +242,35 @@
     });
   }
 
-  /* ------------------------------------- flagship art: scroll-driven scale */
+  /* --------------------------- flagship: sticky scroll story (chapters) */
   function initFlagship() {
+    var story = document.querySelector('.flagship--story');
     var art = document.querySelector('.flagship__art');
-    if (!art || reduced) return;
+    if (!art) return;
+    var cells = story ? story.querySelectorAll('.flagship__cell') : [];
+    var deskMQ = window.matchMedia('(min-width: 961px)');
+    if (reduced) { Array.prototype.forEach.call(cells, function (c) { c.classList.add('is-on'); }); return; }
     function onScroll() {
-      var r = art.getBoundingClientRect();
-      var vh = window.innerHeight;
-      // progress: 0 when the art's top enters the viewport bottom, 1 when its top reaches 30% vh
-      var p = Math.min(1, Math.max(0, (vh - r.top) / (vh * 0.9)));
-      var s = 0.86 + 0.14 * p;
+      if (!deskMQ.matches || !story) {
+        // mobile / no story wrapper: simple grow-on-approach
+        var r0 = art.getBoundingClientRect();
+        var p0 = Math.min(1, Math.max(0, (window.innerHeight - r0.top) / (window.innerHeight * 0.9)));
+        art.style.setProperty('--fs', (0.9 + 0.1 * p0).toFixed(4));
+        Array.prototype.forEach.call(cells, function (c) { c.classList.add('is-on'); });
+        return;
+      }
+      var scroll = story.querySelector('.flagship__scroll');
+      var r = scroll.getBoundingClientRect();
+      var total = r.height - window.innerHeight;
+      var p = Math.min(1, Math.max(0, -r.top / Math.max(1, total)));
+      // chapter 1 (0–0.45): the framed art expands to full frame
+      var s = 0.82 + 0.18 * Math.min(1, p / 0.45);
       art.style.setProperty('--fs', s.toFixed(4));
+      // chapters 2–4: synopsis, credits, honours enter in narrative order
+      var gates = [0.45, 0.62, 0.78];
+      Array.prototype.forEach.call(cells, function (c, i) {
+        c.classList.toggle('is-on', p >= (gates[i] || 0.8));
+      });
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
@@ -263,4 +373,6 @@
   initCinema();
   initSlateAtmo();
   initToTop();
+  initHashNav();
+  initTransitions();
 })();

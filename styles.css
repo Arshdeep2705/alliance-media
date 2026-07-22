@@ -5,8 +5,6 @@
    Motion: mask/clip reveals, line reveals, premium easing. No gimmicks.
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,420;0,9..144,560;1,9..144,340;1,9..144,420&family=Libre+Franklin:wght@400;500;600;700;800&display=swap');
-
 :root {
   --ivory: #f2efe7;
   --ivory-2: #e9e5d9;
@@ -87,6 +85,7 @@ button { font: inherit; background: none; border: 0; color: inherit; cursor: poi
 .is-open .ident { clip-path: inset(0 0 100% 0); visibility: hidden; }
 .is-open .ident__mark { opacity: 0; transition: opacity 0.4s 0.6s; }
 .ident--off { display: none !important; }
+@media (max-width: 760px) { .ident { display: none !important; } } /* phones: instant hero, no intro */
 
 /* --------------------------------------------------------- progress cue */
 .scroll-progress { position: fixed; top: 0; left: 0; height: 2px; width: 100%; z-index: 260; transform-origin: 0 50%; transform: scaleX(0); background: linear-gradient(90deg, var(--gold-deep), var(--gold-bright)); }
@@ -181,6 +180,8 @@ button { font: inherit; background: none; border: 0; color: inherit; cursor: poi
   .hero__media img { object-position: 62% 30%; }
   .hero__credit { display: none; }
   .hero__foot-inner span:last-child { display: none; }
+  /* phones skip the ident, so the title must not wait for JS */
+  .hero__title .t-line > span { transform: none; transition: none; }
 }
 
 /* ------------------------------------------------------------ recognition */
@@ -526,6 +527,61 @@ button { font: inherit; background: none; border: 0; color: inherit; cursor: poi
 .center { text-align: center; }
 .mt-lg { margin-top: clamp(40px, 5.5vw, 72px); }
 
+/* ============================================================ v3.1 pass */
+
+/* page-transition curtain (film-cut) */
+.curtain { position: fixed; inset: 0; z-index: 360; background: var(--black); clip-path: inset(0 0 100% 0); pointer-events: none; }
+.curtain.is-cut { transition: clip-path 0.38s var(--ease-luxe); clip-path: inset(0); pointer-events: auto; }
+.curtain.is-entry { clip-path: inset(0); transition: none; }
+.curtain.is-entry.is-lift { transition: clip-path 0.5s var(--ease-luxe) 0.05s; clip-path: inset(0 0 100% 0); }
+
+/* flagship sticky scroll story (desktop) */
+@media (min-width: 961px) {
+  .flagship--story .flagship__scroll { height: 260vh; position: relative; }
+  .flagship--story .flagship__stage { position: sticky; top: 90px; margin-top: 0; display: grid; align-content: start; height: calc(100vh - 110px); }
+  .flagship--story .flagship__art { align-self: center; max-width: calc((100vh - 320px) * 16 / 9); margin-inline: auto; width: 100%; }
+  .flagship--story .flagship__meta { margin-top: 22px; }
+  .flagship--story .flagship__cell { opacity: 0; transform: translateY(18px); transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out); }
+  .flagship--story .flagship__cell.is-on { opacity: 1; transform: none; }
+}
+@media (max-width: 960px) {
+  .flagship--story .flagship__scroll { height: auto; }
+  .flagship--story .flagship__art { transform: none !important; }
+}
+
+/* cinematic banner for internal pages */
+.cine-banner { position: relative; background: var(--black); color: var(--n-text); padding: clamp(150px, 20vh, 230px) 0 clamp(56px, 8vh, 100px); overflow: hidden; }
+.cine-banner .breadcrumb { color: var(--n-dim); }
+.cine-banner .breadcrumb a { color: var(--n-dim); }
+.cine-banner .breadcrumb a:hover { color: var(--gold-bright); }
+.cine-banner .eyebrow { color: var(--gold-bright); }
+.cine-banner h1 { font-family: var(--serif); font-weight: 380; font-size: clamp(44px, 7vw, 104px); line-height: 1.0; text-wrap: balance; color: var(--ivory); }
+.cine-banner h1 .accent, .cine-banner .accent { font-style: italic; color: var(--gold-bright); font-weight: 340; }
+.cine-banner .lead { margin-top: 22px; color: var(--n-dim); }
+.cine-banner .laurel { border-color: var(--n-line-2); color: var(--n-text); }
+.cine-banner .banner-band { margin-bottom: calc(-1 * clamp(56px, 8vh, 100px)); }
+.cine-banner__backdrop { position: absolute; inset: 0; opacity: 0.22; pointer-events: none; }
+.cine-banner__backdrop img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.5) brightness(0.7); }
+.cine-banner__backdrop::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,9,8,0.65), rgba(10,9,8,0.92)); }
+
+/* typographic title-frame atmospheres (no fake artwork) */
+.atmo-frame { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; opacity: 0; transition: opacity 0.7s var(--ease-out); }
+.atmo-frame.is-on { opacity: 1; }
+.atmo-frame--misfired { background: radial-gradient(90% 80% at 50% 40%, #1a2026, #0a0d10 75%); }
+.atmo-frame--khoj { background: radial-gradient(90% 80% at 50% 40%, #251a0c, #0f0a05 75%); }
+.atmo-frame__word { font-family: var(--serif); font-weight: 340; font-style: italic; font-size: clamp(80px, 13vw, 210px); line-height: 1; color: transparent; -webkit-text-stroke: 1px rgba(242, 239, 231, 0.14); user-select: none; }
+.atmo-frame--khoj .atmo-frame__word { -webkit-text-stroke-color: rgba(210, 169, 75, 0.16); }
+.atmo-frame__tag { font-size: 10px; font-weight: 600; letter-spacing: 0.5em; text-indent: 0.5em; text-transform: uppercase; color: rgba(242, 239, 231, 0.35); }
+
+/* titlecard tonal variants (slate page) */
+.titlecard--misfired { background: linear-gradient(170deg, #eef0f2, #d8dde2); }
+.titlecard--misfired .titlecard__name { color: #232c33; }
+.titlecard--khoj { background: linear-gradient(170deg, #f7efdd, #e9dcc0); }
+.titlecard--khoj .titlecard__name { color: #4a3a17; }
+
+/* editorial pull quote for people pages */
+.pull-quote { font-family: var(--serif); font-style: italic; font-weight: 340; font-size: clamp(22px, 2.6vw, 34px); line-height: 1.45; color: var(--ink); border-left: 2px solid var(--gold); padding-left: clamp(18px, 2.4vw, 30px); margin: 2em 0; max-width: 30ch; }
+
 /* ------------------------------------------------------- reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
@@ -536,4 +592,8 @@ button { font: inherit; background: none; border: 0; color: inherit; cursor: poi
   .ribbon__track, .ticker__track { animation: none !important; }
   .flagship__art { transform: none !important; }
   .finale__cities { animation: none !important; }
+  .curtain { display: none !important; }
+  .flagship--story .flagship__scroll { height: auto !important; }
+  .flagship--story .flagship__stage { position: static !important; height: auto !important; }
+  .flagship--story .flagship__cell { opacity: 1 !important; transform: none !important; }
 }
