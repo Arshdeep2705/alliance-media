@@ -80,22 +80,44 @@
     }, { passive: true });
   }
 
-  /* ----------------------------------------------------- reveal on scroll */
+  /* ----------------------------------------------------- reveal on scroll
+     NOTE: deliberately NOT IntersectionObserver — Chromium applies the
+     target's own clip-path to the intersection, so elements hidden with
+     zero-area clip-path (.reveal-mask/.reveal-wipe) would never fire.
+     getBoundingClientRect ignores clip-path, so a cheap rAF-throttled
+     check is the reliable path. Also reveals anything scrolled PAST
+     (anchor jumps), so nothing can stay invisible. */
   function initReveal() {
     document.querySelectorAll('.reveal-child').forEach(function (group) {
       Array.prototype.forEach.call(group.children, function (child, i) { child.style.setProperty('--ri', i); });
     });
-    var targets = document.querySelectorAll('.reveal, .reveal-child, .reveal-mask, .reveal-wipe, .rule-draw');
-    if (!('IntersectionObserver' in window) || reduced) {
-      targets.forEach(function (t) { t.classList.add('is-in'); });
-      return;
+    var targets = Array.prototype.slice.call(
+      document.querySelectorAll('.reveal, .reveal-child, .reveal-mask, .reveal-wipe, .rule-draw')
+    );
+    if (reduced) { targets.forEach(function (t) { t.classList.add('is-in'); }); return; }
+    var pending = false;
+    function check() {
+      pending = false;
+      var vh = window.innerHeight;
+      for (var i = targets.length - 1; i >= 0; i--) {
+        var r = targets[i].getBoundingClientRect();
+        if (r.top < vh * 0.92) { // entering viewport, or already above it
+          targets[i].classList.add('is-in');
+          targets.splice(i, 1);
+        }
+      }
+      if (!targets.length) {
+        window.removeEventListener('scroll', onScroll);
+        window.removeEventListener('resize', onScroll);
+      }
     }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
-    targets.forEach(function (t) { io.observe(t); });
+    function onScroll() {
+      if (!pending) { pending = true; requestAnimationFrame(check); }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    window.addEventListener('load', onScroll);
+    check();
   }
 
   /* ------------------------------------------------------------- counters */
