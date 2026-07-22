@@ -6,7 +6,7 @@
   <title>Alliance Media Pty Ltd — Australian Film Production Company</title>
   <meta name="description" content="Alliance Media Pty Ltd is an Australian film production company — producer of Echoes of Us (88+ international laurels, Best Actor at the French Riviera Film Festival, Cannes 2026) with an international slate in development." />
   <link rel="icon" href="assets/logo/am-emblem-w400.png" />
-  <link rel="stylesheet" href="styles.css?v=1784691508483" />
+  <link rel="stylesheet" href="styles.css?v=3" />
   <link rel="canonical" href="https://arshdeep2705.github.io/alliance-media/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Alliance Media Pty Ltd" />
@@ -39,8 +39,17 @@
   }
   </script>
 </head>
-<body>
+<body class="header-dark">
   <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- studio ident -->
+  <div class="ident" aria-hidden="true">
+    <div class="ident__mark">
+      <div class="ident__rule"></div>
+      <div class="ident__name">Alliance Media</div>
+      <div class="ident__sub">Melbourne · Mumbai · Cannes</div>
+    </div>
+  </div>
 
   <div class="scroll-progress" aria-hidden="true"></div>
 
@@ -48,7 +57,8 @@
     <div class="container--wide">
       <div class="site-header__inner">
         <a class="brand" href="./" aria-label="Alliance Media Pty Ltd — home">
-          <img src="assets/logo/am-logo-dark-w600.png" alt="Alliance Media Pty Ltd" />
+          <img class="brand__dark" src="assets/logo/am-logo-dark-w600.png" alt="Alliance Media Pty Ltd" width="600" height="342" />
+          <img class="brand__light" src="assets/logo/am-logo-tr-w600.png" alt="Alliance Media Pty Ltd" width="600" height="342" />
         </a>
         <nav class="main-nav" aria-label="Primary">
           <a href="./" aria-current="page">Home</a>
@@ -74,156 +84,176 @@
 
   <main id="main">
 
-    <!-- ============================================================ HERO -->
-    <section class="hero">
-      <div class="container">
-        <p class="hero__eyebrow">Alliance Media Pty Ltd · Melbourne, Australia</p>
-        <h1 class="display display--xl hero__title">Australian craft.<br />World <span class="accent">cinema.</span></h1>
-        <p class="hero__sub">Alliance Media is the production company behind <strong>Echoes of Us</strong> — 88+ international laurels and a Best Actor (Founders Award) win at the French Riviera Film Festival in Cannes — with an international slate built for the world stage.</p>
+    <!-- ======================================================== ACT I · HERO -->
+    <section class="hero--cinema grain">
+      <div class="hero__media">
+        <img src="assets/films/echoes-of-us-hero-faces-w2400.jpg" alt="Deepak Tijori and Iulia Vantur in Echoes of Us" width="2400" height="730" fetchpriority="high" />
+      </div>
+      <div class="container hero__inner">
+        <p class="hero__kicker">Alliance Media · An Australian film production company</p>
+        <h1 class="hero__title">
+          <span class="t-line"><span>Australian craft.</span></span>
+          <span class="t-line"><span>World <em class="gold">cinema.</em></span></span>
+        </h1>
+        <p class="hero__credit">Producer of <b>Echoes of Us</b> · 88+ international laurels · Best Actor (Founders Award) · French Riviera Film Festival · Cannes MMXXVI</p>
         <div class="hero__actions">
-          <a class="btn btn--ink" href="films/echoes-of-us/">Echoes of Us<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="btn btn--line" href="slate/">View the slate<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn--gold" href="films/echoes-of-us/">The film<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn--ghost" href="slate/">The slate<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
-      <div class="hero__band">
-        <img src="assets/films/echoes-of-us-hero-faces-w2400.jpg" alt="Deepak Tijori and Iulia Vantur in Echoes of Us" fetchpriority="high" />
-        <div class="hero__band-caption">
-          <span><em>Echoes of Us</em> · Now on the world festival circuit</span>
-          <span>A film by Joe Rajan</span>
+      <div class="hero__foot">
+        <div class="container hero__foot-inner">
+          <span class="scroll-cue">Scroll</span>
+          <span>Echoes of Us <span class="dot">·</span> Now on the world festival circuit</span>
+          <span>37.8136° S · 144.9631° E</span>
         </div>
       </div>
     </section>
 
-    <!-- ========================================================== TICKER -->
-    <div class="ticker" aria-hidden="true">
-      <div class="ticker__track">
-        <span class="ticker__item"><em>French Riviera Film Festival</em> — Cannes 2026<svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.2H22l-6 4.6 2.3 7.2-6.3-4.5-6.3 4.5 2.3-7.2-6-4.6h7.6z"/></svg></span>
-        <span class="ticker__item">88+ International Laurels<svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.2H22l-6 4.6 2.3 7.2-6.3-4.5-6.3 4.5 2.3-7.2-6-4.6h7.6z"/></svg></span>
-        <span class="ticker__item"><em>79th Cannes Film Festival</em> — Screening 2026<svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.2H22l-6 4.6 2.3 7.2-6.3-4.5-6.3 4.5 2.3-7.2-6-4.6h7.6z"/></svg></span>
-        <span class="ticker__item">SAIFFF Florida 2026 — Sweep<svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.2H22l-6 4.6 2.3 7.2-6.3-4.5-6.3 4.5 2.3-7.2-6-4.6h7.6z"/></svg></span>
-        <span class="ticker__item"><em>22 Best Actor</em> · 15 Best Film · 11 Best Actress<svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.2H22l-6 4.6 2.3 7.2-6.3-4.5-6.3 4.5 2.3-7.2-6-4.6h7.6z"/></svg></span>
-        <span class="ticker__item">Berlin · Singapore · Barcelona · Florida · Los Angeles<svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.2H22l-6 4.6 2.3 7.2-6.3-4.5-6.3 4.5 2.3-7.2-6-4.6h7.6z"/></svg></span>
+    <!-- ============================================== ACT II · RECOGNITION -->
+    <section class="recognition grain" aria-label="Recognition">
+      <div class="container">
+        <div class="recognition__grid reveal-child">
+          <div class="rec-stat"><div class="rec-stat__num"><span data-count="88">88</span><sup>+</sup></div><div class="rec-stat__label">International laurels</div></div>
+          <div class="rec-stat"><div class="rec-stat__num"><span data-count="22">22</span></div><div class="rec-stat__label">Best Actor awards</div></div>
+          <div class="rec-stat"><div class="rec-stat__num"><span data-count="15">15</span></div><div class="rec-stat__label">Best Film awards</div></div>
+          <div class="rec-stat"><div class="rec-stat__num"><span data-count="11">11</span></div><div class="rec-stat__label">Best Actress awards</div></div>
+        </div>
       </div>
-    </div>
+      <div class="ribbon" aria-hidden="true">
+        <div class="ribbon__track">
+          <span class="ribbon__item"><span class="ribbon__fest">French Riviera Film Festival</span><span class="ribbon__meta">Cannes · 2026</span><span class="ribbon__sep">·</span></span>
+          <span class="ribbon__item"><span class="ribbon__fest">79th Cannes Film Festival</span><span class="ribbon__meta">Screening · 2026</span><span class="ribbon__sep">·</span></span>
+          <span class="ribbon__item"><span class="ribbon__fest">SAIFFF Florida</span><span class="ribbon__meta">Sweep · 2026</span><span class="ribbon__sep">·</span></span>
+          <span class="ribbon__item"><span class="ribbon__fest">Indian Panorama</span><span class="ribbon__meta">Triple honour · 2025–26</span><span class="ribbon__sep">·</span></span>
+          <span class="ribbon__item"><span class="ribbon__fest">Dadasaheb Phalke Awards</span><span class="ribbon__meta">Sweep · 11th edition</span><span class="ribbon__sep">·</span></span>
+        </div>
+      </div>
+      <div class="cities">
+        <span><b>Melbourne</b></span><span>Cannes</span><span>Berlin</span><span>Singapore</span><span>Florida</span><span>Los Angeles</span>
+      </div>
+    </section>
 
-    <!-- ========================================================== STUDIO -->
+    <!-- ================================================ ACT III · MANIFESTO -->
     <section class="section" id="studio">
       <div class="container">
-        <div class="studio-grid">
-          <div class="reveal">
-            <p class="eyebrow">The studio</p>
-            <h2 class="display">An Australian house<br />for <span class="accent">world cinema.</span></h2>
-            <p class="prose-editorial mt-lg" style="margin-top:32px">Alliance Media is the international arm of the Alliance group — packaging, producing and financing stories that travel.</p>
-            <p style="margin-top:22px; color:var(--ink-soft); max-width:62ch">From Melbourne, we take cinema born anywhere and carry it everywhere: Cannes, Berlin, Florida, Singapore and beyond. Sister company to Mumbai's Alliance Productions India LLP, we operate where Australian craft meets global storytelling — co-producing award-winning work and developing an international slate spanning true-story drama, literary adaptation and period biography.</p>
-            <p style="margin-top:18px; color:var(--ink-soft); max-width:62ch">Founder <strong style="color:var(--ink); font-weight:600">Deepak Tijori</strong> serves as an Industry Advisor on the <a href="https://waifc.org.au/about/our-people" target="_blank" rel="noopener" style="color:var(--gold-dark); text-decoration:underline; text-underline-offset:3px">West Australian Indian Film Council's Industry Advisory Council</a> — part of the group's deepening roots in the Australian screen industry.</p>
+        <div class="manifesto__grid">
+          <div>
+            <p class="eyebrow reveal">The studio</p>
+            <p class="manifesto__quote reveal">We take cinema born <em>anywhere</em> and carry it <em>everywhere.</em></p>
+            <div class="rule-draw mt-lg"></div>
+            <div class="manifesto__body reveal">
+              <p>Alliance Media is the international arm of the Alliance group — packaging, producing and financing stories that travel. From Melbourne: Cannes, Berlin, Florida, Singapore and beyond.</p>
+              <p>Sister company to Mumbai's <strong>Alliance Productions India LLP</strong>, we operate where Australian craft meets global storytelling — co-producing award-winning work and developing an international slate spanning true-story drama, literary adaptation and period biography.</p>
+              <p>Founder <strong>Deepak Tijori</strong> serves as an Industry Advisor on the <a href="https://waifc.org.au/about/our-people" target="_blank" rel="noopener" style="color:var(--gold-deep); text-decoration:underline; text-underline-offset:3px">West Australian Indian Film Council's Industry Advisory Council</a> — part of the group's deepening roots in the Australian screen industry.</p>
+            </div>
           </div>
-          <dl class="studio-grid__aside reveal-child">
+          <dl class="studio-facts reveal-child">
             <div class="studio-fact"><dt>Headquarters</dt><dd>Melbourne, Australia</dd></div>
             <div class="studio-fact"><dt>Group</dt><dd>Alliance Productions India LLP · Mumbai</dd></div>
             <div class="studio-fact"><dt>Flagship</dt><dd>Echoes of Us — 88+ international laurels</dd></div>
             <div class="studio-fact"><dt>Focus</dt><dd>Production · Co-production · Packaging · Festival strategy</dd></div>
+            <div class="studio-fact"><dt>In development</dt><dd>Four projects</dd></div>
           </dl>
         </div>
       </div>
     </section>
 
-    <!-- =========================================================== STATS -->
-    <div class="stats">
-      <div class="stat"><div class="stat__num"><span data-count="88">88</span><sup>+</sup></div><div class="stat__label">International laurels</div></div>
-      <div class="stat"><div class="stat__num"><span data-count="22">22</span></div><div class="stat__label">Best Actor awards</div></div>
-      <div class="stat"><div class="stat__num"><span data-count="15">15</span></div><div class="stat__label">Best Film awards</div></div>
-      <div class="stat"><div class="stat__num"><span data-count="4">4</span></div><div class="stat__label">Projects in development</div></div>
-    </div>
-
-    <!-- ==================================================== FILM FEATURE -->
-    <section class="section section--night" id="film">
+    <!-- ================================================ ACT IV · FLAGSHIP -->
+    <section class="flagship grain" id="film">
       <div class="container">
-        <div class="feature__grid">
-          <div class="reveal">
-            <a class="art-frame" href="films/echoes-of-us/" aria-label="Echoes of Us — film page">
-              <img src="assets/films/echoes-of-us-hero-w2400.jpg" alt="Echoes of Us — official key art" loading="lazy" />
-            </a>
+        <div class="section-head">
+          <div>
+            <p class="eyebrow reveal">The flagship film</p>
+            <h2 class="display display--xl reveal">Echoes <span class="accent">of Us.</span></h2>
           </div>
-          <div class="reveal">
-            <p class="eyebrow">The flagship film</p>
-            <h2 class="feature__title">Echoes of Us</h2>
-            <p class="feature__byline">A film by <em>Joe Rajan</em> · Produced by <em>Pooja Batra</em> &amp; <em>Alliance Media</em></p>
-            <p class="feature__body">A heartfelt story of love, loss and second chances — two strangers, bound by what is no longer there. <strong>Deepak Tijori</strong> and <strong>Iulia Vantur</strong> lead a chamber piece that carried an independent set all the way to the Croisette.</p>
-            <dl class="credit-lines">
-              <div class="credit-line"><dt>Honours</dt><dd>15 Best Film · 22 Best Actor · 11 Best Actress · 88+ laurels</dd></div>
-              <div class="credit-line"><dt>Cannes 2026</dt><dd>Best Actor (Founders Award) — French Riviera Film Festival</dd></div>
-            </dl>
-            <div class="hero__actions" style="margin-top:34px">
-              <a class="btn btn--gold" href="films/echoes-of-us/">Explore the film<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-              <a class="btn btn--line" href="films/echoes-of-us/#trailer">Watch the trailer<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 5v14l11-7z"/></svg></a>
+          <a class="btn btn--ghost reveal" href="films/echoes-of-us/">Explore the film<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="flagship__stage">
+          <div class="flagship__art">
+            <img src="assets/films/echoes-of-us-hero-w2400.jpg" alt="Echoes of Us — official key art" width="2400" height="1350" loading="lazy" />
+          </div>
+          <div class="flagship__meta reveal-child">
+            <div class="flagship__cell">
+              <h4>The film</h4>
+              <p class="big">A heartfelt story of love, loss and second chances — two strangers, bound by what is no longer there.</p>
+            </div>
+            <div class="flagship__cell">
+              <h4>Credits</h4>
+              <p>A film by <b>Joe Rajan</b> · Produced by <b>Pooja Batra</b> &amp; <b>Alliance Media Pty Ltd</b> · Starring <b>Deepak Tijori</b>, <b>Iulia Vantur</b> and <b>Alessandra</b> · Short film · English</p>
+            </div>
+            <div class="flagship__cell">
+              <h4>Honours</h4>
+              <p><b>15 Best Film</b> · <b>22 Best Actor</b> · <b>11 Best Actress</b> · 88+ international laurels · <b>Best Actor (Founders Award)</b>, French Riviera Film Festival, Cannes 2026</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ========================================================= TRAILER -->
-    <section class="section" id="trailer">
+    <!-- ================================================= ACT V · THEATRE -->
+    <section class="theatre grain" id="trailer">
       <div class="container">
-        <div class="trailer-head reveal">
-          <p class="eyebrow">Watch the trailer</p>
-          <h2 class="display">Echoes of Us · <span class="accent">Official trailer</span></h2>
+        <div class="trailer-head">
+          <p class="eyebrow reveal">The trailer</p>
+          <h2 class="display reveal" style="color:var(--n-text)">Two minutes <span class="accent">inside the film.</span></h2>
         </div>
-        <div class="trailer-frame reveal">
-          <video controls preload="none" playsinline poster="assets/films/echoes-trailer-poster.jpg" width="1280" height="536">
-            <source src="assets/videos/echoes-trailer-scope.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================== BIG QUOTE -->
-    <section class="section section--alt">
-      <div class="container">
-        <figure class="quote-band reveal">
-          <blockquote>
-            <p>The success of Echoes of Us reflects a growing appetite for authentic storytelling that transcends borders.</p>
-          </blockquote>
-          <figcaption>Hemant Dinkar <em>·</em> Festival Director, SAIFFF Florida</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <!-- =========================================================== SLATE -->
-    <section class="section" id="slate">
-      <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <p class="eyebrow">In development</p>
-            <h2 class="display">The <span class="accent">slate.</span></h2>
+        <div class="theatre__stage reveal-mask" role="button" tabindex="0" aria-label="Play the Echoes of Us trailer in cinema view" data-cinema="assets/videos/echoes-trailer-scope.mp4" data-cinema-poster="assets/films/echoes-trailer-poster.jpg">
+          <div class="theatre__poster">
+            <img src="assets/films/echoes-trailer-poster.jpg" alt="Still from the Echoes of Us trailer" width="1280" height="536" loading="lazy" />
           </div>
-          <a class="btn btn--line" href="slate/">All projects<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <div class="theatre__veil" aria-hidden="true"></div>
+          <div class="theatre__play" aria-hidden="true">
+            <span class="theatre__play-ring"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+            <span class="theatre__play-label">Watch the trailer</span>
+          </div>
+        </div>
+        <div class="theatre__caption">
+          <span>Echoes of Us · Official trailer</span>
+          <span>1 min 17 · Silent until you press play</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================== ACT VI · SLATE -->
+    <section class="section--night section slate-wrap grain" id="slate">
+      <div class="slate-atmo" aria-hidden="true">
+        <div class="atmo-tone" data-atmo-layer="tone"></div>
+        <img data-atmo-layer="kabuliwala" src="assets/films/kabuliwala-poster-w1600.jpg" alt="" loading="lazy" />
+        <img data-atmo-layer="defiant-nadia" src="assets/films/defiant-nadia-w1600.jpg" alt="" loading="lazy" />
+      </div>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow reveal">In development</p>
+            <h2 class="display reveal">The <span class="accent">slate.</span></h2>
+          </div>
+          <a class="btn btn--ghost reveal" href="slate/">All projects<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
 
-        <div class="slate-list reveal">
-          <a class="slate-row" href="slate/#misfired">
+        <div class="slate-list slate-list--desk reveal">
+          <a class="slate-row" href="slate/#misfired" data-atmo="tone">
             <span class="slate-row__idx">01</span>
             <span class="slate-row__title">Misfired</span>
             <span class="slate-row__meta"><strong>Origin</strong>Based on a true Australian story</span>
             <span class="slate-row__status">2026–27 production</span>
             <span class="slate-row__arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </a>
-          <a class="slate-row" href="slate/#defiant-nadia">
+          <a class="slate-row" href="slate/#defiant-nadia" data-atmo="defiant-nadia">
             <span class="slate-row__idx">02</span>
             <span class="slate-row__title">Defiant Nadia</span>
             <span class="slate-row__meta"><strong>Producer</strong>Alliance Productions India</span>
             <span class="slate-row__status">In development</span>
             <span class="slate-row__arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </a>
-          <a class="slate-row" href="slate/#kabuliwala">
+          <a class="slate-row" href="slate/#kabuliwala" data-atmo="kabuliwala">
             <span class="slate-row__idx">03</span>
             <span class="slate-row__title">Kabuliwala</span>
             <span class="slate-row__meta"><strong>Director</strong>Atiq Rahimi · from Rabindranath Tagore</span>
             <span class="slate-row__status">In development</span>
             <span class="slate-row__arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </a>
-          <a class="slate-row" href="slate/#khoj">
+          <a class="slate-row" href="slate/#khoj" data-atmo="tone">
             <span class="slate-row__idx">04</span>
             <span class="slate-row__title">Khoj</span>
             <span class="slate-row__meta"><strong>Status</strong>Details to be announced</span>
@@ -231,62 +261,82 @@
             <span class="slate-row__arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </a>
         </div>
+
+        <!-- mobile: cinematic project cards -->
+        <div class="slate-cardlist reveal-child">
+          <a class="slate-card" href="slate/#misfired">
+            <div class="slate-card__img slate-card__img--pad"><img src="assets/logo/am-emblem-w400.png" alt="" width="400" height="400" loading="lazy" /></div>
+            <div class="slate-card__body"><span class="slate-card__title">Misfired</span><span class="slate-card__meta">Based on a true Australian story</span><span class="slate-card__status">2026–27 production</span></div>
+          </a>
+          <a class="slate-card" href="slate/#defiant-nadia">
+            <div class="slate-card__img"><img src="assets/films/defiant-nadia-w800.jpg" alt="Defiant Nadia" width="800" height="628" loading="lazy" /></div>
+            <div class="slate-card__body"><span class="slate-card__title">Defiant Nadia</span><span class="slate-card__meta">Alliance Productions India</span><span class="slate-card__status">In development</span></div>
+          </a>
+          <a class="slate-card" href="slate/#kabuliwala">
+            <div class="slate-card__img"><img src="assets/films/kabuliwala-poster-w800.jpg" alt="Kabuliwala" width="800" height="1000" loading="lazy" /></div>
+            <div class="slate-card__body"><span class="slate-card__title">Kabuliwala</span><span class="slate-card__meta">Atiq Rahimi · from Rabindranath Tagore</span><span class="slate-card__status">In development</span></div>
+          </a>
+          <a class="slate-card" href="slate/#khoj">
+            <div class="slate-card__img slate-card__img--pad"><img src="assets/logo/am-emblem-w400.png" alt="" width="400" height="400" loading="lazy" /></div>
+            <div class="slate-card__body"><span class="slate-card__title">Khoj</span><span class="slate-card__meta">Details to be announced</span><span class="slate-card__status">In development</span></div>
+          </a>
+        </div>
       </div>
     </section>
 
-    <!-- ======================================================= LEADERSHIP -->
-    <section class="section section--alt" id="leadership">
+    <!-- ============================================== ACT VII · LEADERSHIP -->
+    <section class="section" id="leadership">
       <div class="container">
-        <div class="section-head reveal">
+        <div class="section-head">
           <div>
-            <p class="eyebrow">Leadership</p>
-            <h2 class="display">The people behind<br />the <span class="accent">pictures.</span></h2>
+            <p class="eyebrow reveal">Leadership</p>
+            <h2 class="display reveal">The people behind<br />the <span class="accent">pictures.</span></h2>
           </div>
         </div>
         <div class="people-grid reveal-child">
           <a class="person-card" href="people/deepak-tijori/">
-            <div class="person-card__media">
+            <div class="person-card__media reveal-mask">
               <img src="assets/people/deepak-tijori-2026-formal-w1200.jpg" alt="Deepak Tijori — 2026 portrait" loading="lazy" />
+              <span class="person-card__name">Deepak Tijori</span>
             </div>
-            <div class="person-card__label">
-              <div class="person-card__name">Deepak Tijori</div>
-              <div class="person-card__role">Founder &amp; Managing Director</div>
-              <span class="person-card__cue">Read profile <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            <div class="person-card__under">
+              <span class="person-card__role">Founder &amp; Managing Director</span>
+              <span class="person-card__cue">Profile <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
             </div>
           </a>
           <a class="person-card" href="people/arshdeep-singh/">
-            <div class="person-card__media">
+            <div class="person-card__media reveal-mask">
               <img src="assets/people/arshdeep-singh-w1200.jpg" alt="Arshdeep Singh — portrait" loading="lazy" />
+              <span class="person-card__name">Arshdeep Singh</span>
             </div>
-            <div class="person-card__label">
-              <div class="person-card__name">Arshdeep Singh</div>
-              <div class="person-card__role">Executive Director</div>
-              <span class="person-card__cue">Read profile <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            <div class="person-card__under">
+              <span class="person-card__role">Executive Director</span>
+              <span class="person-card__cue">Profile <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
             </div>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- ============================================================= CTA -->
-    <section class="section cta">
+    <!-- ================================================ ACT VIII · FINALE -->
+    <section class="finale grain">
+      <span class="finale__cities" aria-hidden="true">Melbourne — Mumbai — Cannes — Berlin — Singapore — Los Angeles —&nbsp;</span>
       <div class="container">
-        <p class="eyebrow">Co-production · Financing · Distribution</p>
-        <h2 class="display reveal">Let's make something<br />that <span class="accent">travels.</span></h2>
-        <p class="cta__sub reveal">We partner with financiers, distributors, sales agents and fellow producers across Australia, India and the world. If our slate speaks to you, we should speak too.</p>
-        <div class="cta__actions reveal">
-          <a class="btn btn--ink" href="contact/">Get in touch<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <p class="eyebrow reveal" style="justify-content:center">Co-production · Financing · Distribution</p>
+        <h2 class="display display--xl reveal">Let's make something<br />that <span class="accent">travels.</span></h2>
+        <p class="finale__sub reveal">We partner with financiers, distributors, sales agents and fellow producers across Australia, India and the world.</p>
+        <div class="finale__actions reveal">
+          <a class="btn btn--gold" href="contact/">Get in touch<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ============================================================ FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <div class="site-footer__grid">
         <div class="site-footer__brand">
-          <img src="assets/logo/am-logo-tr-w600.png" alt="Alliance Media Pty Ltd" loading="lazy" />
+          <img src="assets/logo/am-logo-tr-w600.png" alt="Alliance Media Pty Ltd" width="600" height="342" loading="lazy" />
           <p>An Australian film production company. Produced from Melbourne, seen everywhere.</p>
         </div>
         <div>
@@ -325,6 +375,6 @@
 
   <button class="to-top" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
 
-  <script src="script.js?v=1784691508483"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>
