@@ -303,7 +303,8 @@ button { font: inherit; background: none; border: 0; color: inherit; cursor: poi
 /* ----------------------------------------------------------------- slate */
 .slate-wrap { position: relative; isolation: isolate; }
 .slate-atmo { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
-.slate-atmo img, .slate-atmo .atmo-tone { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.7s var(--ease-out); filter: saturate(0.5) brightness(0.32); }
+.slate-atmo img, .slate-atmo .atmo-tone { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.7s var(--ease-out); }
+.slate-atmo img { object-fit: contain; object-position: calc(100% - 3vw) center; padding: 5vh 0; filter: saturate(0.55) brightness(0.42); }
 .slate-atmo .atmo-tone { background: radial-gradient(80% 70% at 60% 40%, #241d10, var(--black)); }
 .slate-atmo .is-on { opacity: 1; }
 .slate-list { border-top: 1px solid var(--n-line-2); }
@@ -331,8 +332,9 @@ button { font: inherit; background: none; border: 0; color: inherit; cursor: poi
   .slate-list--desk { display: none; }
   .slate-cardlist { display: grid; gap: 16px; }
   .slate-card { position: relative; overflow: hidden; border: 1px solid var(--n-line-2); background: var(--black-2); }
-  .slate-card__img { aspect-ratio: 16 / 10; overflow: hidden; }
-  .slate-card__img img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.6) brightness(0.75); }
+  .slate-card__img { overflow: hidden; background: var(--black-2); }
+  .slate-card__img img { width: 100%; height: auto; object-fit: contain; filter: saturate(0.7) brightness(0.85); }
+  .slate-card__img--pad { aspect-ratio: 16 / 10; }
   .slate-card__img--pad { display: flex; align-items: center; justify-content: center; background: radial-gradient(80% 80% at 50% 40%, #221b0f, var(--black)); }
   .slate-card__img--pad img { width: 84px; height: auto; object-fit: contain; filter: none; }
   .slate-card__body { padding: 20px; display: grid; gap: 6px; }
