@@ -1,0 +1,7 @@
+# Internal research / working material — must NEVER be published.
+# GitHub Pages serves every tracked file at the live URL.
+data/
+_internal-data/
+*.log
+.DS_Store
+Thumbs.db
