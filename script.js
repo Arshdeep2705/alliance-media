@@ -283,6 +283,7 @@
     if (!stage) return;
     var src = stage.getAttribute('data-cinema');
     var poster = stage.getAttribute('data-cinema-poster') || '';
+    var barTitle = stage.getAttribute('data-cinema-title') || 'Echoes of Us · Official trailer';
     var modal = document.createElement('div');
     modal.className = 'cinema';
     modal.setAttribute('role', 'dialog');
@@ -292,7 +293,7 @@
       '<div class="cinema__frame">' +
       '<video controls playsinline preload="metadata" width="1280" height="536"' + (poster ? ' poster="' + poster + '"' : '') + '>' +
       '<source src="' + src + '" type="video/mp4" /></video>' +
-      '<div class="cinema__bar"><span>Echoes of Us · Official trailer</span>' +
+      '<div class="cinema__bar"><span>' + barTitle + '</span>' +
       '<button class="cinema__close" type="button">Close' +
       '<svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>' +
       '</button></div></div>';
