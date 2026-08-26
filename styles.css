@@ -344,8 +344,9 @@ button { font: inherit; background: none; border: 0; color: inherit; cursor: poi
 }
 
 /* ---------------------------------------------------------------- people */
-.people-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(28px, 4vw, 64px); }
-@media (max-width: 760px) { .people-grid { grid-template-columns: 1fr; } }
+.people-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 2.5vw, 36px); }
+@media (max-width: 1000px) { .people-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .people-grid { grid-template-columns: 1fr; max-width: 380px; margin-inline: auto; } }
 .person-card { position: relative; display: block; }
 .person-card__media { position: relative; overflow: hidden; aspect-ratio: 4 / 5; background: var(--black); }
 .person-card__media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 15%; filter: grayscale(1) contrast(1.05) brightness(0.92); transition: filter 0.9s var(--ease-out), transform 1.2s var(--ease-out); }
