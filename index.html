@@ -11,8 +11,9 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340..560;1,9..144,340..560&family=Libre+Franklin:wght@400..800&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340..560;1,9..144,340..560&family=Libre+Franklin:wght@400..800&display=swap" rel="stylesheet" media="print" onload="this.media=&quot;all&quot;" />
   <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340..560;1,9..144,340..560&family=Libre+Franklin:wght@400..800&display=swap" rel="stylesheet" /></noscript>
-  <link rel="preload" as="image" href="assets/films/echoes-of-us-hero-faces-w2400.jpg" imagesrcset="assets/films/echoes-of-us-hero-faces-w800.jpg 800w, assets/films/echoes-of-us-hero-faces-w1200.jpg 1200w, assets/films/echoes-of-us-hero-faces-w2400.jpg 2400w" imagesizes="100vw" />
-  <link rel="stylesheet" href="styles.css?v=9" />
+  <link rel="preload" as="image" media="(min-width: 761px)" href="assets/films/echoes-of-us-hero-faces-w2400.jpg" imagesrcset="assets/films/echoes-of-us-hero-faces-w800.jpg 800w, assets/films/echoes-of-us-hero-faces-w1200.jpg 1200w, assets/films/echoes-of-us-hero-faces-w2400.jpg 2400w" imagesizes="100vw" />
+  <link rel="preload" as="image" media="(max-width: 760px)" href="assets/films/echoes-of-us-hero-mobile-w848.jpg" imagesrcset="assets/films/echoes-of-us-hero-mobile-w424.jpg 424w, assets/films/echoes-of-us-hero-mobile-w848.jpg 848w" imagesizes="100vw" />
+  <link rel="stylesheet" href="styles.css?v=10" />
   <link rel="canonical" href="https://alliancemediaptyltd.au/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Alliance Media Pty Ltd" />
@@ -93,7 +94,10 @@
     <!-- ======================================================== ACT I · HERO -->
     <section class="hero--cinema grain">
       <div class="hero__media">
-        <img src="assets/films/echoes-of-us-hero-faces-w2400.jpg" srcset="assets/films/echoes-of-us-hero-faces-w800.jpg 800w, assets/films/echoes-of-us-hero-faces-w1200.jpg 1200w, assets/films/echoes-of-us-hero-faces-w2400.jpg 2400w" sizes="100vw" alt="Deepak Tijori and Iulia Vantur in Echoes of Us" width="2400" height="730" fetchpriority="high" />
+        <picture>
+          <source media="(max-width: 760px)" srcset="assets/films/echoes-of-us-hero-mobile-w424.jpg 424w, assets/films/echoes-of-us-hero-mobile-w848.jpg 848w" sizes="100vw" width="848" height="1264" />
+          <img src="assets/films/echoes-of-us-hero-faces-w2400.jpg" srcset="assets/films/echoes-of-us-hero-faces-w800.jpg 800w, assets/films/echoes-of-us-hero-faces-w1200.jpg 1200w, assets/films/echoes-of-us-hero-faces-w2400.jpg 2400w" sizes="100vw" alt="Deepak Tijori and Iulia Vantur in Echoes of Us" width="2400" height="730" fetchpriority="high" />
+        </picture>
       </div>
       <div class="container hero__inner">
         <p class="hero__kicker">Alliance Media · An Australian film production company</p>
