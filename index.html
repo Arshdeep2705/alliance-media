@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alliance Media Pty Ltd — Australian Film Production Company</title>
+  <title>Alliance Media Pty Ltd — Australian Film Production Company | Melbourne</title>
   <meta name="description" content="Alliance Media Pty Ltd is an Australian film production company — producer of Echoes of Us (88+ international laurels, Best Actor at the French Riviera Film Festival, Cannes 2026) and the upcoming international feature Defiant Nadia." />
   <link rel="icon" href="assets/logo/am-emblem-w400.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,26 +24,101 @@
   <meta name="twitter:title" content="Alliance Media Pty Ltd — Australian Film Production Company" />
   <meta name="twitter:description" content="The Australian production company behind Echoes of Us — 88+ international laurels and a Cannes-season Best Actor win." />
   <meta name="twitter:image" content="https://alliancemediaptyltd.au/assets/logo/am-logo-w1200.png" />
+
+  <!-- seo-pack -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Alliance Media Pty Ltd",
-    "url": "https://alliancemediaptyltd.au/",
-    "logo": "https://alliancemediaptyltd.au/assets/logo/am-logo-w1200.png",
-    "address": { "@type": "PostalAddress", "addressLocality": "Melbourne", "addressCountry": "AU" },
-    "parentOrganization": { "@type": "Organization", "name": "Alliance Productions India LLP", "url": "https://allianceproductionsindia.com" },
-    "founder": {
-      "@type": "Person",
-      "name": "Deepak Tijori",
-      "memberOf": {
-        "@type": "Organization",
-        "name": "West Australian Indian Film Council — Industry Advisory Council",
-        "url": "https://waifc.org.au/about/our-people"
-      }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://alliancemediaptyltd.au/#website",
+      "url": "https://alliancemediaptyltd.au/",
+      "name": "Alliance Media Pty Ltd",
+      "alternateName": "Alliance Media",
+      "publisher": {
+        "@id": "https://alliancemediaptyltd.au/#organization"
+      },
+      "inLanguage": "en-AU"
     },
-    "sameAs": ["https://www.instagram.com/deepaktijoriteam/"]
-  }
+    {
+      "@type": "Organization",
+      "@id": "https://alliancemediaptyltd.au/#organization",
+      "name": "Alliance Media Pty Ltd",
+      "alternateName": [
+        "Alliance Media",
+        "Alliance Media Australia"
+      ],
+      "legalName": "Alliance Media Pty Ltd",
+      "url": "https://alliancemediaptyltd.au/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://alliancemediaptyltd.au/assets/logo/am-logo-w1200.png"
+      },
+      "image": "https://alliancemediaptyltd.au/assets/films/echoes-of-us-hero-w2400.jpg",
+      "description": "Alliance Media Pty Ltd is an Australian film production company based in Melbourne — producer of the award-winning short film Echoes of Us (88+ international laurels, Best Actor (Founders Award) at the French Riviera Film Festival, Cannes 2026) and the upcoming international feature Defiant Nadia.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Melbourne",
+        "addressRegion": "VIC",
+        "addressCountry": "AU"
+      },
+      "email": "ash@allianceproductionsindia.com",
+      "telephone": "+61 478 625 638",
+      "founder": {
+        "@id": "https://alliancemediaptyltd.au/people/deepak-tijori/#person"
+      },
+      "employee": [
+        {
+          "@id": "https://alliancemediaptyltd.au/people/deepak-tijori/#person"
+        },
+        {
+          "@id": "https://alliancemediaptyltd.au/people/arshdeep-singh/#person"
+        },
+        {
+          "@id": "https://alliancemediaptyltd.au/people/snehal-kulshreshtha/#person"
+        },
+        {
+          "@id": "https://alliancemediaptyltd.au/people/anita-sharma/#person"
+        },
+        {
+          "@id": "https://alliancemediaptyltd.au/people/chirag-trivedi/#person"
+        }
+      ],
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "Alliance Productions India LLP",
+        "url": "https://allianceproductionsindia.com"
+      },
+      "knowsAbout": [
+        "Film production",
+        "Co-production",
+        "Film financing",
+        "Festival strategy",
+        "Australian cinema",
+        "Indian cinema"
+      ],
+      "sameAs": [
+        "https://allianceproductionsindia.com",
+        "https://www.instagram.com/deepaktijoriteam/"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://alliancemediaptyltd.au/#webpage",
+      "url": "https://alliancemediaptyltd.au/",
+      "name": "Alliance Media Pty Ltd — Australian Film Production Company",
+      "isPartOf": {
+        "@id": "https://alliancemediaptyltd.au/#website"
+      },
+      "about": {
+        "@id": "https://alliancemediaptyltd.au/#organization"
+      },
+      "inLanguage": "en-AU"
+    }
+  ]
+}
   </script>
 </head>
 <body class="header-dark">
