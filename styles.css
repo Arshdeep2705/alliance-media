@@ -187,8 +187,9 @@ button { font: inherit; background: none; border: 0; color: inherit; cursor: poi
 
 /* ------------------------------------------------------------ recognition */
 .recognition { background: var(--black); color: var(--n-text); border-top: 1px solid var(--n-line); padding: clamp(60px, 8vw, 110px) 0 0; }
-.recognition__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(24px, 3vw, 56px); align-items: end; }
-@media (max-width: 860px) { .recognition__grid { grid-template-columns: repeat(2, 1fr); row-gap: 44px; } }
+.recognition__grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(20px, 2.4vw, 48px); align-items: end; }
+@media (max-width: 860px) { .recognition__grid { grid-template-columns: repeat(3, 1fr); row-gap: 44px; } }
+@media (max-width: 520px) { .recognition__grid { grid-template-columns: repeat(2, 1fr); } }
 .rec-stat__num { font-family: var(--serif); font-weight: 340; font-size: clamp(52px, 6.4vw, 104px); line-height: 0.95; color: var(--ivory); display: flex; align-items: baseline; }
 .rec-stat__num sup { font-size: 0.4em; color: var(--gold-bright); margin-left: 4px; }
 .rec-stat__label { margin-top: 14px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--n-dim); border-top: 1px solid var(--n-line); padding-top: 12px; }
